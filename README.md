@@ -1,5 +1,5 @@
 
-# Bot Telegram
+# Painel Admin e Crud in Flask
 
 Este projeto foi feito com o intuito de praticar e entender a construção e execução do mesmo.
 De simples compreensão e construção, este painel de admin é uma simples base com um crud.
