@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página inicial do site. Faça login, acesse seu perfil ou registre-se para começar.">
+    <meta name="author" content="Seu Nome ou Sua Empresa">
+    <meta name="robots" content="index, follow">
+    <title>Página Inicial</title>
+    
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Favicon (opcional, mas recomendado) -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <h1>Bem-vindo à Página Inicial!</h1>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul>
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('profile') }}" aria-label="Ir para o perfil">Perfil</a></li>
+                <li><a href="{{ url_for('logout') }}" aria-label="Sair da conta">Sair</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}" aria-label="Entrar na conta">Entrar</a></li>
+                <li><a href="{{ url_for('register') }}" aria-label="Registrar uma nova conta">Registrar</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Rodapé (opcional) -->
+    <footer>
+        <p>&copy; 2024 Lint. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

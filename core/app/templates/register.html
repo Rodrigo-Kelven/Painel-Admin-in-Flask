@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Crie uma conta</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }} <!-- Este é o token CSRF -->
+        
+        <label for="username">Nome de usuário</label>
+        {{ form.username() }}<br>
+
+        <label for="password">Senha</label>
+        {{ form.password() }}<br>
+
+        <label for="password_confirmation">Confirme a senha</label>
+        {{ form.password_confirmation() }}<br>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a></p>
+</body>
+</html>
